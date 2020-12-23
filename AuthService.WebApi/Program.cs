@@ -8,11 +8,16 @@ namespace AuthService.WebApi
    {
       static void Main(string[] args)
       {
-         var host = Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(wb => wb.UseStartup<Startup>())
-            .Build();
+         var host = CreateHostBuilder(args).Build();
 
          host.Run();
+      }
+
+      static IHostBuilder CreateHostBuilder(string[] args)
+      {
+         return Host
+                  .CreateDefaultBuilder(args)
+                  .ConfigureWebHostDefaults(wb => wb.UseStartup<Startup>());
       }
    }
 }
